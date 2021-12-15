@@ -1,12 +1,14 @@
 import 'dart:developer';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 // ignore: non_constant_identifier_names
-Widget DefaultButton() {
+Widget DefaultButton({required String route}) {
   const paddingSize = 8.0;
   return ElevatedButton(
-    onPressed: () => log("button pressed"),
+    onPressed: () => Get.toNamed(route),
     child: const Text("DefaultButton"),
     style: ElevatedButton.styleFrom(
       primary: const Color(0xFF121212),

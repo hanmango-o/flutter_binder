@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-
-import 'buttons/default_button.dart';
+import 'package:flutter_binder/functions/route.dart';
+import 'package:flutter_binder/pages/topNavWithoutAppbar/top_nav_without_appbar_page.dart';
+import 'package:flutter_binder/widgets/buttons/default_button.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +13,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
           color: Color(0xFF121212),
@@ -19,6 +21,13 @@ class MyApp extends StatelessWidget {
         primaryColor: Colors.black,
       ),
       home: const MainFrame(),
+      getPages: [
+        GetPage(
+          name: "/topNavWithoutAppBar",
+          page: () => const TopNavWithoutAppBarPage(),
+          transition: Transition.leftToRight,
+        )
+      ],
     );
   }
 }
@@ -34,9 +43,8 @@ class MainFrame extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: ListView(
-            // 버튼으로 라우팅하여 각 위젯에 접근할 예정
             children: [
-              DefaultButton(),
+              DefaultButton(route: "/topNavWithoutAppBar"),
             ],
           ),
         ),
