@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'buttons/default_button.dart';
+
 void main() {
   runApp(const MyApp());
 }
@@ -12,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       theme: ThemeData(
         appBarTheme: const AppBarTheme(
-          color: Colors.black87,
+          color: Color(0xFF121212),
         ),
         primaryColor: Colors.black,
       ),
@@ -29,9 +31,15 @@ class MainFrame extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: const Text("Flutter Binder")),
       body: Center(
-        child: ListView(
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: ListView(
             // 버튼으로 라우팅하여 각 위젯에 접근할 예정
-            ),
+            children: [
+              DefaultButton(),
+            ],
+          ),
+        ),
       ),
     );
   }
